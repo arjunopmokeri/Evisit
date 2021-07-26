@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} HOME {% endblock %}
+
+{% block content %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Reason</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for re in reg %}
+    <tr class="table-success">
+      <th scope="row">{{ re.id }}</th>
+      <th>{{ re.name }}</th>
+      <td>{{ re.reason }}</td>
+      <td>{{ re.time }}</td>
+      <td><a href="{% url 'edi_user' re.id %}" class="btn btn-sm btn-info">Edit</a></td>
+      <td><a href="" class="btn btn-sm btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %} 
